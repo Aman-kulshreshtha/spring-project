@@ -11,8 +11,13 @@ public class Swift implements Car {
     //managed by spring so we do autowired notation here
 
     // therefore don't do Engine engine = new Engine();
-    @Autowired
+    //@Autowired
     Engine engine;
+    @Autowired(required = false)
+    public void setEngine(Engine engine) {
+        engine.version = "new v8";
+        this.engine = engine;
+    }
 
     @Override
     public String specifications() {
