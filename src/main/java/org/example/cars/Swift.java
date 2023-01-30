@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("swift")
+
 public class Swift implements Car {
 
     //clearly this is another class and in order to fully invert the control to spring this object should also be
