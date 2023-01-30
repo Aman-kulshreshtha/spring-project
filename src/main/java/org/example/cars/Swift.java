@@ -1,7 +1,9 @@
 package org.example.cars;
 
 import org.example.interfaces.Car;
+import org.example.interfaces.Engine;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("swift")
@@ -12,15 +14,15 @@ public class Swift implements Car {
 
     // therefore don't do Engine engine = new Engine();
     //@Autowired
-    Engine engine;
+
     @Autowired(required = false)
-    public void setEngine(Engine engine) {
-        engine.version = "new v8";
-        this.engine = engine;
-    }
+    //Engine v8; instead of doing this use @Qualifier annotation
+    @Qualifier("v8")
+    Engine engine;
+
 
     @Override
     public String specifications() {
-        return "specs of swift with engine version: "+engine.version;
+        return "specs of swift with engine version: "+engine.version();
     }
 }
